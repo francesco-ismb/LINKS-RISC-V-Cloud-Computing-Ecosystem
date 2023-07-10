@@ -23,11 +23,28 @@ Let's assume the target architecture is **arch=riscv64** and the host machine is
 ```	
 	$ go version
 ```
-Once done, a bootstrap compilation toolchain should be available on the system. At this point, a building folder should be create in the system, and the bootstrap script invoked. To this end, let's assume that the `/home/<user>/workspace/` folder is created on the system. Then the following steps apply:
+Once done, a bootstrap compilation toolchain should be available on the system. At this point, a building folder should be create in the system, and the bootstrap script invoked. To this end, let's assume that the `/home/<user>/workspace/` folder is created on the system. Then, the following steps apply:
 	
 1. Create the target building folder:
 ```
-	$ mkdir go
-	$ cd go/
+	$ mkdir go-build
+	$ cd go-build/
 ```
-2. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text)
+2. Download the go-lang compiler sources at [golang src](https://go.dev/dl/) (note: the version of the compiler may change from the version used at the moment of writing this guide that is the `go1.20.5.src.tar.gz`). Once downloaded the package and unpack it as follows: 
+```
+	$ wget https://go.dev/dl/go1.20.5.src.tar.gz 
+	$ tar -xvzf go1.20.5.src.tar.gz
+	$ cd go 
+```
+3. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text) and make it executable:
+```
+	$ chmod -x bootstrap.bash
+```
+	Since the bootstrap script referes at line 50 to `src` folder in the copied `../../go-linux-riscv64-bootstrap/` but that folder can be reached with one level of indirection (`./go/src`) there is need to fix the line 50 of the script as follows:
+	```
+		cd go/src
+	```	
+4. Executing the bootstrap script stting the variables `GOOS` and `GOARCH` to the proper values for the targeted system, i.e., a Linux machine equipped with a RISCV-64 processor (physical or emulated). This should produce in the `../../go-linux-riscv64-bootstrap/` folder the 
+```
+	$ GOOS=linux GOARCH=riscv64 ./bootstrap.bash
+```
