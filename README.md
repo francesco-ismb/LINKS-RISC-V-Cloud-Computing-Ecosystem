@@ -14,15 +14,15 @@ Let's assume the target architecture is **arch=riscv64** and the host machine is
 1. Download the Golang archive (go<version>.linux-amd64.tar.gzip)
 2. Untar the archive in the '/usr/local' folder
 3. Add to the path to the binaries to the `$PATH` environmental variable:
-	`
-	$ vim ~/.bashrc
-	export PATH="/usr/local/go/bin:$PATH" 
-	source ~/.bashrc
-	`
+	
+	`$ vim ~/.bashrc`
+	`export PATH="/usr/local/go/bin:$PATH"` 
+	`source ~/.bashrc`
+
 4. Testing that the compiler is correctly installed:
-	`
-	$ go version
-	`
+	
+	`$ go version`
+
 Once done, a bootstrap compilation toolchain should be available on the system. At this point, a building folder should be create in the system, and the bootstrap script invoked. To this end, let's assume that the `/home/<user>/workspace/` folder is created on the system. Then the following steps apply:
 	
 1. Create the target building folder:
