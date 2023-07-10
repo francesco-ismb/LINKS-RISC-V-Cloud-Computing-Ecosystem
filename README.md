@@ -40,6 +40,7 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 ```
 	$ chmod -x bootstrap.bash
 ```
+
 	Since the bootstrap script referes at line 50 to `src` folder in the copied `../../go-linux-riscv64-bootstrap/` but that folder can be reached with one level of indirection (`./go/src`) there is need to fix the line 50 of the script as follows:
 ```
 	cd go/src
