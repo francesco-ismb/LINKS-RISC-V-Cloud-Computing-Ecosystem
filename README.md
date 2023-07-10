@@ -14,10 +14,12 @@ Let's assume the target architecture is **arch=riscv64** and the host machine is
 1. Download the Golang archive (go<version>.linux-amd64.tar.gzip)
 2. Untar the archive in the '/usr/local' folder
 3. Add to the path to the binaries to the `$PATH` environmental variable:
-	
-	`$ vim ~/.bashrc`
-	`export PATH="/usr/local/go/bin:$PATH"` 
-	`source ~/.bashrc`
+ 
+```
+	$ vim ~/.bashrc
+	export PATH="/usr/local/go/bin:$PATH"
+	source ~/.bashrc
+```
 
 4. Testing that the compiler is correctly installed:
 	
