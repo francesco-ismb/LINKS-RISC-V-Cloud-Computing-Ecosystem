@@ -43,4 +43,7 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 ```
 	$ GOOS=linux GOARCH=riscv64 ./bootstrap.bash
 ```
-The binaries created through this project can be copied to the target machine (or the emulated environment).
+The binaries created through this project can be copied to the target machine (or the emulated environment). At this point the building folder can be removed 
+```
+	$ rm -rf ../go-linux-riscv64/
+```
