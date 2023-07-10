@@ -41,9 +41,9 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 	$ chmod -x bootstrap.bash
 ```
 	Since the bootstrap script referes at line 50 to `src` folder in the copied `../../go-linux-riscv64-bootstrap/` but that folder can be reached with one level of indirection (`./go/src`) there is need to fix the line 50 of the script as follows:
-	```
-		cd go/src
-	```	
+```
+	cd go/src
+```	
 4. Executing the bootstrap script stting the variables `GOOS` and `GOARCH` to the proper values for the targeted system, i.e., a Linux machine equipped with a RISCV-64 processor (physical or emulated). This should produce in the `../../go-linux-riscv64-bootstrap/` folder the 
 ```
 	$ GOOS=linux GOARCH=riscv64 ./bootstrap.bash
