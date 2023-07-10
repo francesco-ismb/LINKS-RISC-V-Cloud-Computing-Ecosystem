@@ -16,7 +16,9 @@ Let's assume the target architecture is **arch=riscv64** and the host machine is
 3. Add to the path to the binaries to the $PATH environmental variable:
 	
 	$ vim ~/.bashrc
+	
 	export PATH="/usr/local/go/bin:$PATH" 
+	
 	source ~/.bashrc
 4. Testing that the compiler is correctly installed:
 	
@@ -27,6 +29,7 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 1. Create the target building folder:
 	
 	$ mkdir go
+
 	$ cd go/
 
 2. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text)
