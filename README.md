@@ -35,11 +35,13 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 ```
 	$ tar -C . -xzf go1.20.5.linux-amd64.tar.gz 
 ```
-3. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text) and make it executable. The script should be pathced a bit in order to make it properly working; so, a patheched version is made available on this repository:
+3. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text) and make it executable. The script should be patched a bit in order to make it properly working; so, a patheched version is made available on this repository:
 ```
 	$ chmod -x bootstrap.bash
 ```
-4. Executing the bootstrap script stting the variables `GOOS` and `GOARCH` to the proper values for the targeted system, i.e., a Linux machine equipped with a RISCV-64 processor (physical or emulated). This should produce in the `../../go-linux-riscv64-bootstrap/` folder the 
+4. Executing the bootstrap script stting the variables `GOOS` and `GOARCH` to the proper values for the targeted system, i.e., a Linux machine equipped with a RISCV-64 processor (physical or emulated). This should produce in the `../go-linux-riscv64/` folder the toolchain targeting the RISCV64 processor. It also creates archives in the `../go-linux-riscv64/archives` folder 
 ```
 	$ GOOS=linux GOARCH=riscv64 ./bootstrap.bash
 ```
+
+The b
