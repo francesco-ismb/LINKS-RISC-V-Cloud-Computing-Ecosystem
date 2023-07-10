@@ -39,7 +39,7 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 3. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text) and make it executable:
 ```
 	$ chmod -x bootstrap.bash
- 3a. Since the bootstrap script referes at line 50 to `src` folder in the copied `../../go-linux-riscv64-bootstrap/` but that folder can be reached with one level of indirection (`./go/src`) there is need to fix the line 50 of the script as follows:
+	- Since the bootstrap script referes at line 50 to `src` folder in the copied `../../go-linux-riscv64-bootstrap/` but that folder can be reached with one level of indirection (`./go/src`) there is need to fix the line 50 of the script as follows:
 ```
 	cd go/src
 ```	
