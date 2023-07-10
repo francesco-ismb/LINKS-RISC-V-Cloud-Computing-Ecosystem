@@ -43,5 +43,4 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 ```
 	$ GOOS=linux GOARCH=riscv64 ./bootstrap.bash
 ```
-
-The b
+The binaries created through this project can be copied to the target machine (or the emulated environment).
