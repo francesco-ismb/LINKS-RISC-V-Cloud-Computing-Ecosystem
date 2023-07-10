@@ -20,14 +20,14 @@ Let's assume the target architecture is **arch=riscv64** and the host machine is
 	source ~/.bashrc
 ```
 4. Testing that the compiler is correctly installed:
-	
-	`$ go version`
-
+```	
+	$ go version
+```
 Once done, a bootstrap compilation toolchain should be available on the system. At this point, a building folder should be create in the system, and the bootstrap script invoked. To this end, let's assume that the `/home/<user>/workspace/` folder is created on the system. Then the following steps apply:
 	
 1. Create the target building folder:
-	`
+```
 	$ mkdir go
 	$ cd go/
-	`
+```
 2. Download the **bootstrap.bash** script. Open and copy on a file named `bootstrap.bash` the code locate at [bootstrap script](https://go.dev/src/bootstrap.bash?m=text)
