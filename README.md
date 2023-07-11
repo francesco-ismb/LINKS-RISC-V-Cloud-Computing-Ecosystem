@@ -83,5 +83,30 @@ The installed toolbox (i.e., <myinstalldir>/bin/) comprises a set of commands th
 - `qemu-img`: allows to manage the creation of virtual hard-drives (i.e., images); virtual hard-drives are supported with various formats (qcow, qcow2, raw).
 - `qemu-riscv64`: allows to emulate only the CPU execution (i.e., no I/O interfaces, disks, networks are emulated).
 - `qemu-system-riscv64`: this is the primary way of running a virtual system; it allows to emulate the whole *system* that is the CPU along with all the peripherals and I/O devices. This is also the primary solution to run a OS (e.g., linux) to boot up a complete machine.
-- `qemu-nbd`: TBD
+- `qemu-nbd`: manage virtual devices (i.e., a virtual disk) as network attached devices.
 
+### Creating a small virtual disk
+Through the above mentioned commands is possible to create a small virtual disk and mounting it on a local folder on the host.
+1. The following command requires the sudo permission and loads on the host kernel the **nbd** module. This module allows to mount on the host machine *networked block devices*; the parameter specifies the maximum number of partitions that can be used in the mounting operation (e.g., `max_part=8` tells the kernel to allow the mounting of /dev/nbd0, /dev/nbd1, ..., /dev/nbd7 partitions).
+```
+	$ sudo modprobe nbd max_part=4
+``` 
+2. Create a small virtual disk using the `qemu-img`. The options of this command allow to specify the size (e.g., 512M) and format (e.g., qcow2) of the virtual disk. The following commands suppose to start from the installation directory of the Qemu toolbox. Note that the size of the disk can be easily expressed using the capitol letters M for mega(bytes) and G for giga(bytes). The `preallocation=full` parameter allows to allocate the whole disk space in advance; this strategy allows to reach better performance but it costs more in terms of space on the host storage system, since it does not grow dynamically. If performance are not critical, this parameter can be omitted, thus allowing the virtual disk to grow and shrink dynamically over the time. 
+```
+	$ mkdir disks
+	$ cd disks
+	$ ../bin/qemu-img create -f qcow2 -o preallocation=full hdd.img 512M
+``` 
+3. Connect the virtual device as a networked block one:
+```
+	$ sudo qemu-nbd --connect=/dev/nbd0 hdd.img
+```
+4. Find the virtual disk partition:
+```
+	$ sudo fdisk /dev/nbd0 -l
+```
+5. Mount the virtual partition on a given mounting point
+```
+	$ mkdir ../mnt
+	$ sudo mount/dev/nbd0 ../mnt 
+```
