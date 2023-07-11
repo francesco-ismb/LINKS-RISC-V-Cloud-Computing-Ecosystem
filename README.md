@@ -45,6 +45,9 @@ Once done, a bootstrap compilation toolchain should be available on the system. 
 ```
 The binaries created through this project can be copied to the target machine (or the emulated environment). At this point the building folder can be removed 
 ```
-	$ cd ..
-	$ rm -rf go-build/
+	$ rm -rf ../go-linux-riscv64/
 ```
+
+## Building Qemu for RISCV-64
+
+This section covers the steps necessary to create the `qemu-system-riscv64` emulator (Qemu), which is the fast emulation solution for developing and running RISCV64 applications. As such, the Qemu platform provides a software emulation of a basic host machine running a RISCV64 compliant processor with all the relevant extensions enabled (memory, cryptographic, hypervisor, floating point multiplication/division).
