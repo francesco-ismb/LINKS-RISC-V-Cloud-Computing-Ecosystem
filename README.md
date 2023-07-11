@@ -67,13 +67,21 @@ The folllowing steps are used to build a working version of the `qemu-system-ris
 ```
 	$ ../configure --target-list=riscv64-softmmu,riscv64-linux-user --prefix=<myinstalldir>
 ```
-4.  Compiling and installing the emulator binaries (where `$nproc` provides the number of physical CPU cores to parallelize the compilation process):
+4.  Compiling and installing the emulator binaries (where `$nproc` provides the number of physical CPU cores to parallelize the compilation process). Note that, depending on the specific permission of the selected desination directory (e.g., the system default one), the second command may require the use of `sudo`:
 ```
 	$ make -j $(nproc)
-	$ sudo make install 
+	$ make install 
 ```
-5. Removing the building folder:
+5. Removing the building folder and setting the folder owner to the current <user> of the host. This last command may be required depending on the permission of the destination folder:
 ```
 	$ cd ..
 	$ rm -rf build
+	$ sudo chown -R $(user).$(user) <myinstalldir>
 ```
+
+The installed toolbox (i.e., <myinstalldir>/bin/) comprises a set of commands that are used to manage the creation and execution of emulated RISCV64 machines. Among the others, the following commands are relevant in the creation and startup of a new machine (note that all commands are prefixed with `qemu-`):
+- `qemu-img`: allows to manage the creation of virtual hard-drives (i.e., images); virtual hard-drives are supported with various formats (qcow, qcow2, raw).
+- `qemu-riscv64`: allows to emulate only the CPU execution (i.e., no I/O interfaces, disks, networks are emulated).
+- `qemu-system-riscv64`: this is the primary way of running a virtual system; it allows to emulate the whole **system** that is the CPU along with all the peripherals and I/O devices. This is also the primary solution to run a OS (e.g., linux) to boot up a complete machine.
+- `qemu-nbd`: TBD
+
