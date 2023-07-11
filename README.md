@@ -72,3 +72,8 @@ The folllowing steps are used to build a working version of the `qemu-system-ris
 	$ make -j $(nproc)
 	$ sudo make install 
 ```
+5. Removing the building folder:
+```
+	$ cd ..
+	$ rm -rf build
+```
