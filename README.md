@@ -82,6 +82,6 @@ The folllowing steps are used to build a working version of the `qemu-system-ris
 The installed toolbox (i.e., <myinstalldir>/bin/) comprises a set of commands that are used to manage the creation and execution of emulated RISCV64 machines. Among the others, the following commands are relevant in the creation and startup of a new machine (note that all commands are prefixed with `qemu-`):
 - `qemu-img`: allows to manage the creation of virtual hard-drives (i.e., images); virtual hard-drives are supported with various formats (qcow, qcow2, raw).
 - `qemu-riscv64`: allows to emulate only the CPU execution (i.e., no I/O interfaces, disks, networks are emulated).
-- `qemu-system-riscv64`: this is the primary way of running a virtual system; it allows to emulate the whole **system** that is the CPU along with all the peripherals and I/O devices. This is also the primary solution to run a OS (e.g., linux) to boot up a complete machine.
+- `qemu-system-riscv64`: this is the primary way of running a virtual system; it allows to emulate the whole *system* that is the CPU along with all the peripherals and I/O devices. This is also the primary solution to run a OS (e.g., linux) to boot up a complete machine.
 - `qemu-nbd`: TBD
 
