@@ -53,7 +53,22 @@ The binaries created through this project can be copied to the target machine (o
 This section covers the steps necessary to create the `qemu-system-riscv64` emulator (Qemu), which is the fast emulation solution for developing and running RISCV64 applications. As such, the Qemu platform provides a software emulation of a basic host machine running a RISCV64 compliant processor with all the relevant extensions enabled (memory, cryptographic, hypervisor, floating point multiplication/division).
 
 The folllowing steps are used to build a working version of the `qemu-system-riscv64`:
-1. Cloning the main Qemu branch from github:
+1. Cloning the main Qemu branch from GitHub (note that at the momento of writing this documentation, the stable version is set to v8.0.0., so check online if a newer version is available):
 ```
-	$ git clone 
+	$ git clone --depth=1 --branch v8.0.0 https://gitlab.com/qemu-project/qemu.git
+```
+2. Entering the cloned repository and create a temporary building directory:
+```
+	$ cd qemu
+	$ mkdir build
+	$ cd build 
+```
+3. Configuring the compiler (note, the `--prefix` option is used to overide the default installation directory, and so it can be omitted):
+```
+	$ ../configure --target-list=riscv64-softmmu,riscv64-linux-user --prefix=<myinstalldir>
+```
+4.  Compiling and installing the emulator binaries (where `$nproc` provides the number of physical CPU cores to parallelize the compilation process):
+```
+	$ make -j $(nproc)
+	$ sudo make install 
 ```
