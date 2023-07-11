@@ -76,7 +76,7 @@ The folllowing steps are used to build a working version of the `qemu-system-ris
 ```
 	$ cd ..
 	$ rm -rf build
-	$ sudo chown -R $(user).$(user) <myinstalldir>
+	$ sudo chown -R $USER.$USER <myinstalldir>
 ```
 
 The installed toolbox (i.e., <myinstalldir>/bin/) comprises a set of commands that are used to manage the creation and execution of emulated RISCV64 machines. Among the others, the following commands are relevant in the creation and startup of a new machine (note that all commands are prefixed with `qemu-`):
