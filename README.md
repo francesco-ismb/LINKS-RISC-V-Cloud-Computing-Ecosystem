@@ -101,12 +101,23 @@ Through the above mentioned commands is possible to create a small virtual disk 
 ```
 	$ sudo qemu-nbd --connect=/dev/nbd0 hdd.img
 ```
-4. Find the virtual disk partition:
+4. Creating a valid filesystem inside the connected block device (e.g., `/dev/nbd0` in our example). To this end, the following command can be used (<type> can be any of the valid linux filesystems, i.e., *ext2*,*ext3*, *ext4*, *xfs*, *btrfs*, *vfat*, *sysfs*, *proc*, *nfs* and *cifs*):
+```
+	$ sudo mkfs.<type> /dev/nbd0
+```	
+5. Find the virtual disk partition ():
 ```
 	$ sudo fdisk /dev/nbd0 -l
 ```
-5. Mount the virtual partition on a given mounting point
+   The output of this command should provide a list of all partiotions inside the created and formatted disk:
 ```
-	$ mkdir ../mnt
-	$ sudo mount/dev/nbd0 ../mnt 
+	Disk /dev/nbd0: 512 MiB, 536870912 bytes, 1048576 sectors
+	Units: sectors of 1 * 512 = 512 bytes
+	Sector size (logical/physical): 512 bytes / 512 bytes
+	I/O size (minimum/optimal): 512 bytes / 512 bytes
+```  
+6. Mount the virtual partition (one of those listed in the output of the previous issued command --i.e., the first output line in the point 5.) on a given mounting point (e.g., ./mnt)
+```
+	$ mkdir ./mnt
+	$ sudo mount -t ext4 /dev/nbd0 ./mnt 
 ```
