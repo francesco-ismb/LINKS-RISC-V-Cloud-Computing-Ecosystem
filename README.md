@@ -6,13 +6,13 @@ computing platform, Gem5 simulator, etc.), Cloud tools (Kubernetes, OpenStack, e
 
 ## Table of Content
 
-1. [CHAPTER 1](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C01.md) 
+- [CHAPTER 1](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C01.md) 
 	- Installing Golang compiler
 	- Qemu for RISCV-64
 		- SLIRP module
 		- Qemu binaries creation
 		- Example -- Creating a small virtual disk
-2. [CHAPTER 2](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C02.md)
+- [CHAPTER 2](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C02.md)
 	- Building the Gnu GCC toolchain
 	- Building Busybox
 	- Building the Linux kernel
@@ -20,6 +20,6 @@ computing platform, Gem5 simulator, etc.), Cloud tools (Kubernetes, OpenStack, e
 		- Running the emulated RISCV64 machine
 		- Mounting virtual disk with Golang on the emulated RISCV64 machine
 
-3. [CHAPTER 3](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C03.md)
+- [CHAPTER 3](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C03.md)
 	- Running a full-fledged Linux machine 
 	- xxx
