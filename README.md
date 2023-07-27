@@ -21,5 +21,5 @@ computing platform, Gem5 simulator, etc.), Cloud tools (Kubernetes, OpenStack, e
 		- Mounting virtual disk with Golang on the emulated RISCV64 machine
 
 3. [CHAPTER 3](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C03.md)
-	- xxx
+	- Running a full-fledged Linux machine 
 	- xxx
