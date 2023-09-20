@@ -22,4 +22,4 @@ computing platform, Gem5 simulator, etc.), Cloud tools (Kubernetes, OpenStack, e
 
 - [CHAPTER 3](https://github.com/francesco-ismb/LINKS-RISC-V-Cloud-Computing-Ecosystem/blob/main/C03.md)
 	- Running a full-fledged Linux machine 
-	- xxx
+	- Installing Docker on the emulated RISCV64 machine
